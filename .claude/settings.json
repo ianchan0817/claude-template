@@ -1,0 +1,43 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git *)",
+      "Bash(gh *)",
+      "Bash(bun *)",
+      "Bash(node *)",
+      "Bash(npm run *)",
+      "Bash(npx *)",
+      "Bash(pnpm *)",
+      "Bash(python *)",
+      "Bash(python3 *)",
+      "Bash(pytest *)",
+      "Bash(pip *)",
+      "Bash(cargo *)",
+      "Bash(go *)",
+      "Bash(docker *)",
+      "Bash(docker-compose *)",
+      "Bash(psql *)",
+      "Bash(redis-cli *)",
+      "Bash(curl *)",
+      "Bash(jq *)",
+      "Bash(cat .claude/*)",
+      "Bash(ls *)",
+      "Bash(find * -name *)",
+      "Bash(grep *)",
+      "Bash(wc *)",
+      "Bash(which *)"
+    ],
+    "deny": [
+      "Bash(rm -rf /)",
+      "Bash(rm -rf ~)",
+      "Bash(git push --force *)",
+      "Bash(git reset --hard *)",
+      "Bash(DROP *)",
+      "Bash(truncate *)",
+      "Read(.env)",
+      "Read(.env.production)",
+      "Read(.env.local)",
+      "Read(**/.env)"
+    ]
+  }
+}
