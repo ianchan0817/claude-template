@@ -28,9 +28,12 @@
       "Bash(which *)"
     ],
     "deny": [
+      "Bash(rm -rf *)",
       "Bash(rm -rf /)",
       "Bash(rm -rf ~)",
       "Bash(git push --force *)",
+      "Bash(cat .secrets.gpg)",
+      "Bash(gpg --decrypt .secrets.gpg)",
       "Bash(git reset --hard *)",
       "Bash(DROP *)",
       "Bash(truncate *)",
