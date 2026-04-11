@@ -4,37 +4,39 @@ description: Team context — who is working on what, their focus areas, and how
 
 # Team
 
-<!-- Fill this in. The CTO and scrum-master use this for daily reports and retros. -->
+<!-- Fill this in. The manager uses this for daily reports and retros. -->
 
 ## Owner
 - **Name:** <!-- your name -->
 - **Focus:** Product direction, key decisions, customer relationships
-- **Delegates to:** CTO for all engineering and product execution
+- **Delegates to:** Manager for all engineering and product execution
 
 ## Active Engineers
 <!-- Add one entry per engineer -->
 
 <!--
 - **Name:** [name]
-  - Role: backend-engineer / frontend-engineer / fullstack
+  - Role: fullstack / backend / frontend
   - Focus this sprint: [what they're working on]
   - Expertise: [their strong areas]
   - Timezone: [for async coordination]
 -->
 
 ## Agent Team
-All agents are always available. Route work based on:
 
-| When you need... | Use agent |
-|-----------------|-----------|
-| Product direction, use cases, prioritization | `product-manager` |
-| UX review, component design, mobile | `ux-designer` |
-| System design, ADRs, architecture | `architect` |
-| Task breakdown, code review, coverage | `engineering-manager` |
-| Backend implementation | `backend-engineer` |
-| Frontend implementation | `frontend-engineer` |
-| E2E testing, release sign-off | `qa-manager` |
-| CI/CD, infra, DB, monitoring | `devops-manager` |
-| Security review, threat modeling | `security-manager` |
-| Process, retros, error log, agent updates | `scrum-master` |
-| Cross-department oversight, daily summary | `cto` |
+| When you need... | Use |
+|-----------------|-----|
+| Cross-concern coordination, daily report | `manager` agent |
+| Build, test, deploy, architecture, DB, CI/CD | `engineer` agent |
+| Code review, security, E2E, retros | `reviewer` agent |
+| Define what to build | `/project:spec` skill |
+| UI/component design | `/project:design` skill |
+| Architecture + task breakdown | `/project:plan` skill |
+| Implementation with TDD | `/project:build` skill |
+| Test strategy | `/project:test` skill |
+| Pre-merge review | `/project:review` skill |
+| Security audit | `/project:security` skill |
+| E2E + release sign-off | `/project:e2e` skill |
+| Land a branch | `/project:ship` skill |
+| Sprint retro | `/project:retro` skill |
+| Debug / root cause | `/project:investigate` skill |

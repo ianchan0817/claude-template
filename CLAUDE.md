@@ -1,22 +1,14 @@
 # CLAUDE.md
 
-## Agent Team
+## Agents
 
 Route work to the right agent. Don't handle specialist work in the main session.
 
 | Agent | Activate when |
 |-------|--------------|
-| `cto` | New initiative, cross-team coordination, daily report |
-| `product-manager` | Use cases, prioritization, feature specs |
-| `ux-designer` | UI design, component specs, mobile review |
-| `architect` | System design, ADRs, scalability, DB schema |
-| `engineering-manager` | Task breakdown, code review, coverage enforcement |
-| `backend-engineer` | API, domain logic, DB queries, cache, integrations |
-| `frontend-engineer` | Components, state, CSS, bundle, security |
-| `qa-manager` | E2E tests, release sign-off, bug triage |
-| `devops-manager` | CI/CD, infra, DB ops, monitoring, SRE |
-| `security-manager` | Auth, data privacy, threat modeling, CVEs |
-| `scrum-master` | Error log, retros, action items, agent updates |
+| `manager` | New initiative, cross-concern coordination, daily report |
+| `engineer` | Build, test, deploy, architecture, DB, CI/CD |
+| `reviewer` | Code review, security audit, E2E sign-off, retros |
 
 ---
 
@@ -24,12 +16,18 @@ Route work to the right agent. Don't handle specialist work in the main session.
 
 | Command | What it does |
 |---------|-------------|
-| `/project:plan` | Full planning sequence: product direction → engineering design → delegate |
-| `/project:review` | Pre-landing code review |
-| `/project:qa` | E2E pass for current branch or staging |
+| `/project:spec` | Define what to build — use cases, RICE, acceptance criteria |
+| `/project:plan` | Architecture design + task breakdown |
+| `/project:design` | UI/component design specs, mobile review |
+| `/project:build` | Incremental implementation with TDD |
+| `/project:test` | Test strategy and coverage enforcement |
+| `/project:review` | Pre-merge code review |
+| `/project:security` | Security audit — threat model, OWASP, CVEs |
+| `/project:e2e` | E2E quality assurance and release sign-off |
 | `/project:ship` | Land a ready branch |
 | `/project:retro` | Sprint retrospective + agent improvement pass |
-| `/project:daily-report` | CTO daily executive summary |
+| `/project:daily-report` | Manager daily executive summary |
+| `/project:investigate` | Root cause debugging |
 
 ---
 
@@ -50,10 +48,14 @@ Agents read these files for project-specific context:
 Every initiative follows this sequence — no skipping steps:
 
 ```
-Idea → product direction review → product-manager (spec) →
-ux-designer (design) → architect (ADR) →
-engineering-manager (tasks) → engineers (build + 100% tests) →
-code review → qa-manager (E2E sign-off) → ship → scrum-master (retro + log)
+Idea → /project:spec (define what + why) →
+/project:design (UI specs, if applicable) →
+/project:plan (architecture + tasks) →
+/project:build (engineer implements with TDD) →
+/project:review (reviewer: code + security) →
+/project:e2e (reviewer: E2E sign-off) →
+/project:ship (land branch) →
+/project:retro (log + improve)
 ```
 
 ---
