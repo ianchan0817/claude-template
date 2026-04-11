@@ -1,16 +1,18 @@
 # claude-template
 
-A production-ready `.claude/` folder template that turns Claude Code into a coordinated team of specialists — each with a defined role, clear ownership, and the right tools.
+A production-ready `.claude/` folder template that turns Claude Code into a coordinated engineering team — 3 agents, 12 workflow skills, and strict quality gates.
+
+Inspired by [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills) and [garrytan/gstack](https://github.com/garrytan/gstack).
 
 ---
 
 ## What this is
 
-Most people use Claude Code as a single generic assistant. This template gives it an org chart.
+Most people use Claude Code as a single generic assistant. This template gives it structure.
 
-Eleven specialist agents. Six slash commands. Always-on rules. Shared context. A process that scales from solo to team.
+Three specialist agents. Twelve workflow skills. Always-on rules. Shared context. A process that scales from solo to team.
 
-Every agent knows its job, who it escalates to, and what it never ships without. The CTO orchestrates the whole thing and reports to you daily.
+Every skill encodes senior engineering discipline with anti-rationalization tables and verification gates. The manager orchestrates, the engineer builds, and the reviewer ensures nothing ships broken.
 
 ---
 
@@ -18,17 +20,9 @@ Every agent knows its job, who it escalates to, and what it never ships without.
 
 | Agent | Role |
 |-------|------|
-| `cto` | Orchestrates the full department. Reviews product and engineering weekly. Runs the daily executive summary. Thinks in budget, capacity, and 30/60/90-day risk. |
-| `product-manager` | Defines what to build and why. First-principles thinking. RICE prioritization. Use cases, feature specs, success metrics. Nothing gets built without a spec. |
-| `ux-designer` | Mobile-first, human-centered design. Studies how great products work (Linear, Stripe, Airbnb, Duolingo). Component specs with every state. Handoff before implementation. |
-| `architect` | Designs for SaaS, multi-tenant, global scale, millions of users. Covers microservices, DB schema by use case, Elasticsearch n-gram indexing, sync vs async, ETL pipelines. Writes ADRs. |
-| `engineering-manager` | Owns the implementation layer. Breaks down tasks. Enforces 100% unit test coverage. Blocks any merge without tests and code review. |
-| `backend-engineer` | Domain-driven, TDD-first. Big O analysis. Query performance, connection pooling, cache strategy. Integration documentation. Never ships untested code. |
-| `frontend-engineer` | Modern frameworks, CSS management, bundle performance. XSS, CSP, CSRF. 100% coverage with Testing Library. Mobile-first always. |
-| `qa-manager` | Owns E2E testing end-to-end. Playwright/Cypress. Diff-aware on feature branches. Nothing ships without E2E sign-off. Every production bug gets a test before the fix closes. |
-| `devops-manager` | CI/CD, infrastructure-as-code, database ops, connection pool monitoring, SLOs, error budgets, incident response, post-mortems. |
-| `security-manager` | STRIDE threat modeling, OWASP review, CVE audits, dependency scanning. Reviews anything touching auth, data, or external APIs. |
-| `scrum-master` | Records every error before it's fixed. Runs retrospectives. Tracks action items. Rewrites agent files when patterns repeat — the agents evolve. |
+| `manager` | Orchestrates the department. Routes work to the right skill or agent. Runs daily executive summaries. Thinks in budget, capacity, and risk. Reports to you. |
+| `engineer` | Full-stack implementation. Architecture, APIs, database, frontend, CI/CD, infrastructure. TDD with 100% coverage. Domain-driven design. Performance-measured. |
+| `reviewer` | Code review, security audit, E2E sign-off, process improvement. Threat modeling (STRIDE). Error logging. Retrospectives. Evolves agent files when patterns repeat. |
 
 ---
 
@@ -38,19 +32,17 @@ Every initiative follows this sequence:
 
 ```
 Idea
- → CTO (product direction review)
- → product-manager (use cases + spec)
- → ux-designer (component specs)
- → architect (ADR + system design)
- → engineering-manager (task breakdown)
- → engineers (build + 100% tests)
- → code review
- → qa-manager (E2E sign-off)
- → ship
- → scrum-master (retro + error log)
+ → /project:spec (define what + why)
+ → /project:design (UI specs, if applicable)
+ → /project:plan (architecture + task breakdown)
+ → /project:build (engineer implements with TDD)
+ → /project:review (code + security review)
+ → /project:e2e (E2E sign-off)
+ → /project:ship (land branch)
+ → /project:retro (log + improve)
 ```
 
-No skipping steps. The CTO enforces the sequence.
+No skipping steps. The manager enforces the sequence.
 
 ---
 
@@ -58,22 +50,18 @@ No skipping steps. The CTO enforces the sequence.
 
 | Command | What it does |
 |---------|-------------|
-| `/project:plan` | Product direction review → engineering design → delegate to team |
-| `/project:review` | Pre-landing code review — two-pass: critical issues then informational |
-| `/project:qa` | E2E pass — diff-aware on feature branches, full suite on staging |
-| `/project:ship` | Land a reviewed, QA-signed branch |
+| `/project:spec` | Define what to build — use cases, RICE prioritization, acceptance criteria |
+| `/project:plan` | Architecture design + task breakdown |
+| `/project:design` | UI/component design specs, mobile review |
+| `/project:build` | Incremental implementation with TDD |
+| `/project:test` | Test strategy and coverage enforcement |
+| `/project:review` | Pre-merge code review — critical issues first, then informational |
+| `/project:security` | Security audit — threat model, OWASP Top 10, CVE check |
+| `/project:e2e` | E2E quality assurance and release sign-off |
+| `/project:ship` | Land a reviewed, signed-off branch |
 | `/project:retro` | Sprint retrospective + agent improvement pass |
-| `/project:daily-report` | CTO daily executive summary |
-
----
-
-## Auto-triggering skills
-
-| Skill | Triggers when |
-|-------|--------------|
-| `triage` | Complex or ambiguous request — routes to the right agent silently |
-| `debug` | Error, stack trace, or failing test shared |
-| `explain` | "How does X work", "explain this", "what does this do" |
+| `/project:daily-report` | Manager daily executive summary |
+| `/project:investigate` | Root cause debugging — no fixes without diagnosis |
 
 ---
 
@@ -96,7 +84,23 @@ Applied across every agent, every session:
 - E2E sign-off before every release
 - Security review for anything touching auth, data, or external APIs
 - Every error logged to `.claude/retrospectives/error-log.md` before it's fixed
-- Recurring errors (2+) trigger an agent file update — the scrum master owns this
+- Recurring errors (2+) trigger an agent file update — the reviewer owns this
+
+---
+
+## Key patterns
+
+Borrowed from the best in the space:
+
+**From [agent-skills](https://github.com/addyosmani/agent-skills):**
+- Anti-rationalization tables — every skill preemptively counters excuses for skipping steps
+- Gated verification — require evidence (passing tests, clean builds), not "it seems right"
+- Six core operating behaviors baked into the build skill
+
+**From [gstack](https://github.com/garrytan/gstack):**
+- "Boil the Lake" — AI makes completeness cheap, so always do the complete thing
+- Atomic commits per fix in QA workflows
+- Workflow-shaped skills over role-shaped agents
 
 ---
 
@@ -125,7 +129,7 @@ The agents read these files to give project-specific answers instead of generic 
 
 .claude/decisions/      — Architecture Decision Records (ADR-NNN format)
 .claude/product/        — feature specs, use cases, product decisions log
-.claude/reports/        — daily CTO executive summaries
+.claude/reports/        — daily executive summaries
 ```
 
 ---
@@ -151,3 +155,9 @@ Then fill in the three context files and your build commands. You're ready.
 Denied by default: `rm -rf *`, force push, `git reset --hard`, `DROP`/`truncate` on databases, reading `.env` files, decrypting secrets.
 
 Adjust the allow list to match your actual toolchain (bun, pnpm, cargo, go, docker, etc. are already included).
+
+---
+
+## License
+
+MIT
