@@ -69,6 +69,7 @@ No skipping steps. The manager enforces the sequence.
 
 Applied across every agent, every session:
 
+- **tech-stack** — languages, frameworks, databases, infrastructure (fill in before first session)
 - **code-style** — naming, formatting, TypeScript strictness, import order
 - **testing** — 100% coverage (statements, branches, functions, lines), TDD, no I/O in unit tests
 - **api-conventions** — REST naming, response envelope, status codes, pagination, versioning
@@ -120,14 +121,15 @@ That's it. The AI derives status from `git log` and keeps decisions in `memory/p
 ## Directory structure
 
 ```
-.claude/
-├── agents/         — 3 specialist agents (manager, engineer, reviewer)
-├── skills/         — 12 workflow skills (spec, plan, build, review, ship, etc.)
-├── rules/          — 6 constraint files (tech-stack, code-style, testing, etc.)
-├── memory/         — lean project memory (progress.md)
-├── docs/adr/       — Architecture Decision Records
-├── settings.json   — tool permissions
-└── CLAUDE.md       — project identity + build commands
+your-project/
+├── CLAUDE.md              — project identity + build commands
+└── .claude/
+    ├── agents/            — 3 specialist agents (manager, engineer, reviewer)
+    ├── skills/            — 12 workflow skills (spec, plan, build, review, ship, etc.)
+    ├── rules/             — 6 constraint files (tech-stack, code-style, testing, etc.)
+    ├── memory/            — lean project memory (progress.md)
+    ├── docs/adr/          — Architecture Decision Records
+    └── settings.json      — tool permissions
 ```
 
 No sprint trackers, no action item tables, no retrospective directories. The AI reads git history for status and updates a single memory file for decisions and context that git can't capture.
@@ -144,7 +146,7 @@ cp -r claude-template/.claude your-project/
 cp claude-template/CLAUDE.md your-project/
 ```
 
-Then fill in the three context files and your build commands. You're ready.
+Then fill in `tech-stack.md` and your build commands. You're ready.
 
 ---
 
