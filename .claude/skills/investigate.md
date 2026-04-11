@@ -53,9 +53,9 @@ Make the **minimal** change that resolves the root cause:
 - [ ] New test covers the bug
 
 ### Step 7 — Log
-Record in `.claude/retrospectives/error-log.md`:
-- What happened, impact, root cause, resolution
-- Whether an agent improvement is triggered
+Record in `.claude/memory/progress.md` under Known Issues:
+- What happened, root cause, resolution
+- Remove entry once resolved
 
 ## Rules
 - No fix without understanding the root cause

@@ -78,4 +78,4 @@ Find problems before attackers do.
 **Never approve a release with open Critical or High findings.**
 
 ## Output
-Document findings with severity, affected file/line, and recommended fix. Log to `.claude/retrospectives/error-log.md` via reviewer.
+Document findings with severity, affected file/line, and recommended fix. Log to `.claude/memory/progress.md` under Known Issues.

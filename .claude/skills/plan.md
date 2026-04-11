@@ -28,7 +28,7 @@ For every significant feature, work through:
 7. **Security** — threat model for anything touching auth, data, or external APIs
 
 ### Step 2 — ADR (if architectural decision involved)
-Write to `.claude/decisions/ADR-NNN-title.md`:
+Write to `.claude/docs/adr/ADR-NNN-title.md`:
 - Context and scale assumptions
 - Options considered with trade-offs
 - Decision and reasoning
@@ -61,8 +61,8 @@ Produce atomic, implementable tasks:
 - [ ] E2E sign-off from reviewer
 ```
 
-### Step 4 — Sprint Entry
-Update `.claude/context/sprint.md` with the new work.
+### Step 4 — Update Memory
+Update `.claude/memory/progress.md` with the new work under **Current Focus** and **What's Next**.
 
 ## Verification Gate
 Do not begin implementation until:

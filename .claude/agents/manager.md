@@ -79,27 +79,19 @@ Run this every day. Gather the facts first, then synthesize.
 git log --since="24 hours ago" --oneline --all
 git branch -a --sort=-committerdate | head -20
 
-# Open issues and blockers
-cat .claude/retrospectives/error-log.md
-cat .claude/retrospectives/action-items.md
+# Project memory — decisions, issues, what's next
+cat .claude/memory/progress.md
 
 # Test health
 # Run: bun test / npm test / pytest — check pass rate and coverage
 
-# Product pipeline
-ls .claude/product/specs/
-ls .claude/product/use-cases/
-
 # Architecture decisions
-ls .claude/decisions/
-
-# Agent improvement log
-cat .claude/retrospectives/agent-improvements.md
+ls .claude/docs/adr/
 ```
 
 ### Step 2 — Write the report
 
-Save to `.claude/reports/daily-YYYY-MM-DD.md`:
+Present to the owner:
 
 ```markdown
 # Executive Summary — YYYY-MM-DD

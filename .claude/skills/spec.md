@@ -29,7 +29,7 @@ Before writing anything, decompose the request:
 8. **What are we explicitly NOT doing?**
 
 ### Step 2 — Use Case Document
-Write to `.claude/product/use-cases/[feature-name].md`:
+Document the use cases (in the spec file or a dedicated doc):
 
 - Business context (problem, objective, success metric)
 - User segments and frequency
@@ -50,7 +50,7 @@ Write to `.claude/product/use-cases/[feature-name].md`:
 **RICE = (Reach x Impact x Confidence) / Effort**
 
 ### Step 4 — Feature Spec
-Write to `.claude/product/specs/[feature-name].md`:
+Write the feature spec (in the project's docs or issue tracker):
 
 - Problem, proposed solution, use cases addressed
 - Acceptance criteria (Given/When/Then)

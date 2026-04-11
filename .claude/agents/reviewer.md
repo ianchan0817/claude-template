@@ -165,44 +165,25 @@ Never approve a release with open Critical or High findings.
 
 ## Process & Error Logging
 
-### Error Log Protocol
+### Error Logging
 Every error, bug, or quality failure gets logged **before** it is fixed.
 
-**File:** `.claude/retrospectives/error-log.md`
-
-```markdown
-## [ERR-NNN] [Title]
-
-**Date:** YYYY-MM-DD
-**Severity:** critical | high | medium | low
-**Status:** open | in-progress | resolved
-
-### What happened
-### Impact
-### Root cause
-### Resolution
-### Agent improvement triggered?
-### Follow-up actions
-```
+Log to `.claude/memory/progress.md` under **Known Issues**:
+- Date, severity, 1-line description
+- Root cause once identified
+- Remove entry when resolved
 
 ### Agent Improvement Protocol
 When a pattern repeats (2+ occurrences):
 1. Identify the gap in the agent's current behavior
 2. Open the agent file and add the missing rule or checklist item
-3. Document the change in `.claude/retrospectives/agent-improvements.md`
+3. Note the change in `.claude/memory/progress.md` under **Recent Decisions**
 
-### Retrospective Protocol
-Run after every sprint or major release. Write to `.claude/retrospectives/retro-YYYY-MM-DD.md`:
-- Errors this sprint
+### Retrospective
+Run after every sprint or major release. Derive data from `git log`. Update `.claude/memory/progress.md` with:
 - What went well / wrong / was slow
 - Agent improvements triggered
-- Action items with owners and due dates
-
-### Action Item Tracking
-**File:** `.claude/retrospectives/action-items.md`
-- Review at start of every retro
-- Items not closed until merged or verifiably complete
-- Overdue items escalated to manager
+- What's next
 
 ---
 

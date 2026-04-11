@@ -73,7 +73,7 @@ For each new feature, document:
 **No sign-off if any item is red.**
 
 ### Step 5 — Log findings
-- Bugs → `.claude/retrospectives/error-log.md`
+- Bugs → `.claude/memory/progress.md` under Known Issues
 - Every production bug that escaped gets an E2E test before fix is closed
 
 ## Bug Triage

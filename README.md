@@ -83,7 +83,7 @@ Applied across every agent, every session:
 - Code review before every merge
 - E2E sign-off before every release
 - Security review for anything touching auth, data, or external APIs
-- Every error logged to `.claude/retrospectives/error-log.md` before it's fixed
+- Every error logged before it's fixed
 - Recurring errors (2+) trigger an agent file update — the reviewer owns this
 
 ---
@@ -104,33 +104,33 @@ Borrowed from the best in the space:
 
 ---
 
-## Project context
+## Setup
 
 Before your first session, fill in:
 
 | File | What to add |
 |------|------------|
-| `.claude/context/tech-stack.md` | Your languages, frameworks, databases, infrastructure |
-| `.claude/context/team.md` | Who's on the team and what they own |
-| `.claude/context/sprint.md` | Current sprint goals, in-progress work, blockers |
+| `.claude/rules/tech-stack.md` | Your languages, frameworks, databases, infrastructure |
 | `CLAUDE.md` | Build commands for your project |
 
-The agents read these files to give project-specific answers instead of generic ones.
+That's it. The AI derives status from `git log` and keeps decisions in `memory/progress.md`.
 
 ---
 
-## What gets tracked
+## Directory structure
 
 ```
-.claude/retrospectives/
-  error-log.md          — every error, logged before it's fixed (ERR-NNN format)
-  action-items.md       — open follow-ups, chased until closed
-  agent-improvements.md — every time an agent file was updated from a pattern
-
-.claude/decisions/      — Architecture Decision Records (ADR-NNN format)
-.claude/product/        — feature specs, use cases, product decisions log
-.claude/reports/        — daily executive summaries
+.claude/
+├── agents/         — 3 specialist agents (manager, engineer, reviewer)
+├── skills/         — 12 workflow skills (spec, plan, build, review, ship, etc.)
+├── rules/          — 6 constraint files (tech-stack, code-style, testing, etc.)
+├── memory/         — lean project memory (progress.md)
+├── docs/adr/       — Architecture Decision Records
+├── settings.json   — tool permissions
+└── CLAUDE.md       — project identity + build commands
 ```
+
+No sprint trackers, no action item tables, no retrospective directories. The AI reads git history for status and updates a single memory file for decisions and context that git can't capture.
 
 ---
 

@@ -87,7 +87,7 @@ For every significant design decision:
 Row-level security with `tenant_id` on every table. RLS policies enforce isolation at DB level.
 
 ### ADR Format
-Save to `.claude/decisions/ADR-NNN-title.md`:
+Save to `.claude/docs/adr/ADR-NNN-title.md`:
 - Context, scale assumptions, options considered, decision, consequences, migration path
 
 ---

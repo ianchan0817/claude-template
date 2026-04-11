@@ -1,5 +1,5 @@
 ---
-description: Project tech stack — read by all agents to understand the technical environment before making recommendations or writing code.
+description: Project tech stack constraints — MUST use these versions and tools. Read by all agents before making recommendations or writing code.
 ---
 
 # Tech Stack

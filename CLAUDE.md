@@ -31,15 +31,18 @@ Route work to the right agent. Don't handle specialist work in the main session.
 
 ---
 
-## Project Context
+## Rules
 
-Agents read these files for project-specific context:
+Constraints applied across every agent, every session. Fill in `tech-stack.md` before your first session.
 
-- `.claude/context/tech-stack.md` — languages, frameworks, tools
-- `.claude/context/team.md` — who's on the team and what they own
-- `.claude/context/sprint.md` — current sprint goals and status
-
-**Fill these in before your first session.**
+| Rule | What it enforces |
+|------|-----------------|
+| `rules/tech-stack.md` | MUST use these languages, frameworks, and tools |
+| `rules/code-style.md` | Naming, formatting, TypeScript strictness |
+| `rules/testing.md` | 100% coverage, TDD, test co-location |
+| `rules/api-conventions.md` | REST naming, response envelope, pagination, versioning |
+| `rules/security.md` | Input validation, secrets, PII, auth/authz gates |
+| `rules/ux-guidelines.md` | Spacing, typography, mobile rules, interaction patterns |
 
 ---
 
@@ -66,8 +69,21 @@ Idea → /project:spec (define what + why) →
 - Code review before every merge
 - E2E sign-off before every release
 - Security review for any change touching auth, data, or external APIs
-- Every error logged to `.claude/retrospectives/error-log.md` before it's fixed
+- Every error logged before it's fixed
 - Recurring errors (2+) trigger an agent file update
+
+---
+
+## Project Memory
+
+After every major task, update `.claude/memory/progress.md` with:
+- What changed (1 sentence)
+- Key decisions made
+- What's next
+
+AI SHOULD derive detailed status from `git log` — memory captures what git can't.
+
+ADRs live in `.claude/docs/adr/ADR-NNN-title.md`.
 
 ---
 
